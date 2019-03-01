@@ -1,77 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
+
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Jquery Calendar</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Bootstrap Datepicker JQuery Filter</title>
+  
+  
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css'>
 
-<!-- <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+      <link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
-">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css">
-
-<!-- Bootstrap -->
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- Main jQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
-</script>
-<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  
 </head>
+
 <body>
-<div class="container p-5">
-    <div class="row">
+
+  <div class="container p-5">
+  <div class="row">
     <div class="col-xs-12 col-lg-4">
-        <div class="datepicker"></div>
-        <p></p>
+      <div class="datepicker"></div>
+
+      <p class="dateSelectOutput mt-2">Date Selection Output</p>
+
+      <div class="form-check mt-2">
+        <input class="form-check-input" type="checkbox" value="" id="music" />
+        <label class="form-check-label" for="music">
+          Music
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="dance" />
+        <label class="form-check-label" for="dance">
+          Dance
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="theatre" />
+        <label class="form-check-label" for="theatre">
+          Theatre
+        </label>
+      </div>
     </div>
+
     <div class="col-xs-12 col-lg-8">
-        <div class="card" data-eDate="2019-02-12" style="width: 18rem;">
+      <div class="card" data-eventdate="2019-02-12">
         <div class="card-body">
-            <h5 class="card-title">Feb 12</h5>
-            <p class="card-text">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary" onclick="getDate()"
-            >Go somewhere</a
-            >
+          <h5 class="card-title">Feb 12</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-        </div>
+      </div>
 
-        <div class="card" data-eDate="2019-02-13" style="width: 18rem;">
+      <div class="card" data-eventdate="2019-02-13">
         <div class="card-body">
-            <h5 class="card-title">Feb 13 - Event 1</h5>
-            <p class="card-text">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary" onclick="getDate()"
-            >Go somewhere</a
-            >
+          <h5 class="card-title">Feb 13 - Event 1</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-        </div>
+      </div>
 
-        <div class="card" data-eDate="2019-02-13" style="width: 18rem;">
+      <div class="card" data-eventdate="2019-02-13">
         <div class="card-body">
-            <h5 class="card-title">Feb 13 - Event 2</h5>
-            <p class="card-text">
-            Some quick example text to build on the card title and make up
-            the bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary" onclick="getDate()"
-            >Go somewhere</a
-            >
+          <h5 class="card-title">Feb 13 - Event 2</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+      </div>
+
+      <div class="card" data-eventdate="2019-03-25">
+        <div class="card-body">
+          <h5 class="card-title">Mar 25</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
+      </div>
+
+      <div class="card" data-eventgenre="music" data-eventdate="2019-03-28">
+        <div class="card-body">
+          <h5 class="card-title">Mar 28 | Event 1</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+      <div class="card" data-eventgenre="music" data-eventdate="2019-03-28">
+        <div class="card-body">
+          <h5 class="card-title">Mar 28 | Event 2</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
 </body>
 
-<!-- <script src="main.js"></script> -->
 </html>
