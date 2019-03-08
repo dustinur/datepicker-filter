@@ -1,128 +1,204 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bootstrap Datepicker JQuery Filter</title>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Bootstrap Datepicker JQuery Filter</title>
-  
-  
-  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css'>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css"
+    />
 
-      <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-  
-</head>
+  <body>
+    
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-xs-12 col-lg-4">
+          <div class="datepicker"></div>
 
-<body>
+          <p class="dateSelectOutput mt-2">Date Selection Output</p>
 
-  <div class="container p-5">
-  <div class="row">
-    <div class="col-xs-12 col-lg-4">
-      <div class="datepicker"></div>
+          <div class="form-check mt-2">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="music"
+            />
+            <label class="form-check-label" for="music">
+              Music
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="dance"
+            />
+            <label class="form-check-label" for="dance">
+              Dance
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="theatre"
+            />
+            <label class="form-check-label" for="theatre">
+              Theatre
+            </label>
+          </div>
+        </div>
 
-      <p class="dateSelectOutput mt-2">Date Selection Output</p>
+        <div class="col-xs-12 col-lg-8">
+          <div class="card" data-eventdate="2019-02-12">
+            <div class="card-body">
+              <h5 class="card-title">Feb 12</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
 
-      <div class="form-check mt-2">
-        <input class="form-check-input" type="checkbox" value="" id="music" />
-        <label class="form-check-label" for="music">
-          Music
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="dance" />
-        <label class="form-check-label" for="dance">
-          Dance
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="theatre" />
-        <label class="form-check-label" for="theatre">
-          Theatre
-        </label>
+          <div class="card" data-eventdate="2019-02-13" data-eventgenre="music">
+            <div class="card-body">
+              <h5 class="card-title">Feb 13 - Event 1</h5>
+              <h5>Music</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-02-13" data-eventgenre="dance">
+            <div class="card-body">
+              <h5 class="card-title">Feb 13 - Event 2</h5>
+              <h5>Dance</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-02-13"
+            data-eventgenre="theatre"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Feb 13 - Event 2</h5>
+              <h5>Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-03-13" data-eventgenre="music">
+            <div class="card-body">
+              <h5 class="card-title">Mar 13 - Event 1</h5>
+              <h5>Music</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-03-13" data-eventgenre="dance">
+            <div class="card-body">
+              <h5 class="card-title">Mar 13 - Event 2</h5>
+              <h5>Dance</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-03-13"
+            data-eventgenre="theatre"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Mar 13 - Event 3</h5>
+              <h5>Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-03-25" data-eventgenre="music">
+            <div class="card-body">
+              <h5 class="card-title">Mar 25</h5>
+              <h5>Music</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-03-28"
+            data-eventgenre="theatre"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Mar 28 | Event 1</h5>
+              <h5>Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-03-28" data-eventgenre="music">
+            <div class="card-body">
+              <h5 class="card-title">Mar 28 | Event 2</h5>
+              <h5>Music</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="col-xs-12 col-lg-8">
-      <div class="card" data-eventdate="2019-02-12">
-        <div class="card-body">
-          <h5 class="card-title">Feb 12</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
-      <div class="card" data-eventdate="2019-02-13">
-        <div class="card-body">
-          <h5 class="card-title">Feb 13 - Event 1</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div class="card" data-eventdate="2019-02-13">
-        <div class="card-body">
-          <h5 class="card-title">Feb 13 - Event 2</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div class="card" data-eventdate="2019-03-25">
-        <div class="card-body">
-          <h5 class="card-title">Mar 25</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div class="card" data-eventgenre="music" data-eventdate="2019-03-28">
-        <div class="card-body">
-          <h5 class="card-title">Mar 28 | Event 1</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div class="card" data-eventgenre="music" data-eventdate="2019-03-28">
-        <div class="card-body">
-          <h5 class="card-title">Mar 28 | Event 2</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js'></script>
-
-  
-
-    <script  src="js/index.js"></script>
-
-
-
-
-</body>
-
+    <script src="js/index.js"></script>
+  </body>
 </html>

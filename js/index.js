@@ -22,6 +22,18 @@ $('.datepicker').datepicker().on('changeDate', function(e){
   $( "p:first" ).html( dateSelect );
 });
 
-$('#music').on('change', evt => {
-  $(evt.target).is(':checked') ? console.log('checked') : console.log('not checked');  
+$('#music, #dance, #theatre').on('change', evt => {
+  var genreSelect = evt.target.id;
+  var genreSelectCard = $(".card*[data-eventgenre*="+ genreSelect + "]");
+  
+  if ( $(evt.target).is(':checked') ) { 
+    genreSelectCard.show(); 
+  } else {
+    genreSelectCard.hide();
+  }  
+ 
+  // $(evt.target).is(':checked') ? genreSelectCard.show() : genreSelectCard.hide();   
+  // $(evt.target).is(':checked') ? console.log('checked') : console.log('not checked');
+  console.log(genreSelect)
 })
+
