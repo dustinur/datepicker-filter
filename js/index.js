@@ -7,9 +7,13 @@ var todaysDate = d.getFullYear() + '-' +
     (month<10 ? '0' : '') + month + '-' +
     (day<10 ? '0' : '') + day;
 
-$("[data-eventdate]").filter(function(){
+function showAllDates() { 
+  $("[data-eventdate]").filter(function(){
   return $(this).attr("data-eventdate") >= todaysDate;
-}).show();
+  }).show();
+}
+showAllDates();
+$("#all").on("click", function () { showAllDates(); });
 
 
 $('.datepicker').datepicker().on('changeDate', function(e){
@@ -22,18 +26,31 @@ $('.datepicker').datepicker().on('changeDate', function(e){
   $( "p:first" ).html( dateSelect );
 });
 
+
+// Checklist filter
 $('#music, #dance, #theatre').on('change', evt => {
   var genreSelect = evt.target.id;
   var genreSelectCard = $(".card*[data-eventgenre*="+ genreSelect + "]");
-  
-  if ( $(evt.target).is(':checked') ) { 
-    genreSelectCard.show(); 
-  } else {
-    genreSelectCard.hide();
-  }  
- 
-  // $(evt.target).is(':checked') ? genreSelectCard.show() : genreSelectCard.hide();   
-  // $(evt.target).is(':checked') ? console.log('checked') : console.log('not checked');
-  console.log(genreSelect)
+
+  var filterGenre = $("input:checkbox[class=form-check-input]:not(:checked)").each(function(){
+    var notChecked = $(this).attr("id");
+    var dateSelectCard = $(".card*[data-eventgenre*="+ notChecked + "]").hide();
+  })
+
+  var checkedItems = $("input:checkbox[class=form-check-input]:checked").map(function() {
+    return $(this).val();
+  }).get();
+
+  if ( $(evt.target).is(':checked') ) genreSelectCard.show();  
+  filterGenre;
+
+  if (checkedItems === undefined || checkedItems.length == 0) {
+    $("[data-eventdate]").filter(function(){
+      return $(this).attr("data-eventdate") >= todaysDate;
+    }).show();
+    console.log('No genres selected')
+  }
+  // console.log(checkedItems)
 })
+
 
