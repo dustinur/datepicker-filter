@@ -9,48 +9,95 @@ var todaysDate = d.getFullYear() + '-' +
 
 function showAllDates() { 
   $("[data-eventdate]").filter(function(){
-  return $(this).attr("data-eventdate") >= todaysDate;
+    return $(this).attr("data-eventdate") >= todaysDate;
   }).show();
 }
+
+function hideOld() { 
+  $("[data-eventdate]").filter(function(){
+    return $(this).attr("data-eventdate") < todaysDate;
+  }).hide();
+}
+
 showAllDates();
-$("#all").on("click", function () { showAllDates(); });
 
+var genreSelect;
+var genreSelectCard;
+var filterUnchecked;
+var checkedItems;
+var dateSelect;
+var dateSelectCard;
 
-$('.datepicker').datepicker().on('changeDate', function(e){
-  var dateSelect = e.date.getFullYear() + '-' + ("0" + (e.date.getMonth() + 1)).slice(-2) + '-' + ("0" + (e.date.getDate())).slice(-2);
-  var dateSelectCard = $(".card*[data-eventdate*="+ dateSelect + "]");
+// datepicker
+$('.datepicker').datepicker({clearBtn: true}).on('changeDate', function(e){
+  dateSelect = e.date.getFullYear() + '-' + ("0" + (e.date.getMonth() + 1)).slice(-2) + '-' + ("0" + (e.date.getDate())).slice(-2);
+  dateSelectCard = $(".card*[data-eventdate*="+ dateSelect + "]");
 
   $( ".card" ).hide();    
   dateSelectCard.data('eventdate') >= todaysDate ? dateSelectCard.show() : dateSelectCard.hide(); 
 
   $( "p:first" ).html( dateSelect );
+  console.log(dateSelect);
+  
+}).on('clearDate', function(e){
+  showAllDates();
+  dateSelect = undefined;
+  $( "p:first" ).html( "No Date Selected" );
 });
 
+// $(".card*[data-eventdate*="+ dateSelect + "]*[data-eventgenre*="+ genreSelect + "]").show();
 
-// Checklist filter
+
+// genre checklist
 $('#music, #dance, #theatre').on('change', evt => {
-  var genreSelect = evt.target.id;
-  var genreSelectCard = $(".card*[data-eventgenre*="+ genreSelect + "]");
+  genreSelect = evt.target.id;
+  genreSelectCard = $(".card*[data-eventgenre*="+ genreSelect + "]");
 
-  var filterGenre = $("input:checkbox[class=form-check-input]:not(:checked)").each(function(){
+  filterUnchecked = $("input:checkbox[class=form-check-input]:not(:checked)").each(function(){
     var notChecked = $(this).attr("id");
-    var dateSelectCard = $(".card*[data-eventgenre*="+ notChecked + "]").hide();
+    var genreSelectCard = $(".card*[data-eventgenre*="+ notChecked + "]").hide();
   })
 
-  var checkedItems = $("input:checkbox[class=form-check-input]:checked").map(function() {
+  checkedItems = $("input:checkbox[class=form-check-input]:checked").map(function() {
     return $(this).val();
   }).get();
 
-  if ( $(evt.target).is(':checked') ) genreSelectCard.show();  
-  filterGenre;
+  filterChecked = $("input:checkbox[class=form-check-input]:checked").each(function(){
+    $(".card*[data-eventgenre*="+ $(this).attr("id") + "]").show();
+    hideOld();
+  })
+  
+  // if ( $(evt.target).is(':checked') ) genreSelectCard.show();  
+  filterUnchecked;
 
-  if (checkedItems === undefined || checkedItems.length == 0) {
-    $("[data-eventdate]").filter(function(){
-      return $(this).attr("data-eventdate") >= todaysDate;
-    }).show();
-    console.log('No genres selected')
+  if (checkedItems.length == 0) {
+    showAllDates();
+    console.log(checkedItems)
   }
-  // console.log(checkedItems)
+  console.log("genre selected: " + checkedItems + ", date selected: " + dateSelect)
 })
+
+
+
+
+
+
+
+// $("#all").on("click", function () { 
+//   showAllDates();
+// });
+
+// if ( dateSelect === undefined ) showAllDates();
+
+// $("#dateSelected").on("click", function () {
+//   if ( !$( "td" ).hasClass( "active" ) ) { 
+//     dateSelect= 0;
+//     showAllDates(); 
+//   };
+//   console.log(dateSelect);
+// });
+
+
+
 
 
