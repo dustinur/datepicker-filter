@@ -19,14 +19,23 @@
   <body>
     <div class="container p-5">
       <div class="row">
+        <div class="col-xs-12 p-4">
+          Dates and genres are added as data attributes
+          (data-eventdate="2019-03-24" data-eventgenre ="music theatre") to each
+          element with the .card class. Event cards older than current date are
+          hidden.
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-12 col-lg-4">
           <!--           <input class="btn btn-primary text-center mt-4" style="width: 200px;" type="button" id="all" value = "Show All" />
-        <input class="btn btn-primary text-center mt-4" style="width: 200px;" type="button" id="dateSelected" value = "Date Selected" /> -->
+    <input class="btn btn-primary text-center mt-4" style="width: 200px;" type="button" id="dateSelected" value = "Date Selected" /> -->
 
           <div class="datepicker"></div>
 
           <p class="dateSelectOutput mt-2">No Date Selected</p>
 
+          <h4 class="pt-2">Genres</h4>
           <div class="form-check mt-2">
             <input
               class="form-check-input"
@@ -58,6 +67,31 @@
             />
             <label class="form-check-label" for="theatre">
               Theatre
+            </label>
+          </div>
+
+          <h4 class="pt-4">Subgenres</h4>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="comedy"
+              id="comedy"
+            />
+            <label class="form-check-label" for="comedy">
+              Comedy
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value="drama"
+              id="drama"
+            />
+            <label class="form-check-label" for="drama">
+              Drama
             </label>
           </div>
         </div>
@@ -141,11 +175,11 @@
           <div
             class="card"
             data-eventdate="2019-03-24"
-            data-eventgenre="theatre"
+            data-eventgenre="music drama theatre"
           >
             <div class="card-body">
               <h5 class="card-title">Mar 24 - Event 3</h5>
-              <h5>Theatre</h5>
+              <h5>Music | Drama | Theatre</h5>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
@@ -156,7 +190,7 @@
 
           <div class="card" data-eventdate="2019-03-25" data-eventgenre="music">
             <div class="card-body">
-              <h5 class="card-title">Mar 25</h5>
+              <h5 class="card-title">Mar 25 - Event 1</h5>
               <h5>Music</h5>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
@@ -168,12 +202,72 @@
 
           <div
             class="card"
-            data-eventdate="2019-03-28"
-            data-eventgenre="theatre"
+            data-eventdate="2019-03-25"
+            data-eventgenre="dance theatre"
           >
             <div class="card-body">
+              <h5 class="card-title">Mar 25 - Event 2</h5>
+              <h5>Dance | Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-03-26"
+            data-eventgenre="drama theatre"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Mar 26 - Event 1</h5>
+              <h5>Drama | Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-03-26"
+            data-eventgenre="comedy"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Mar 26 - Event 2</h5>
+              <h5>Comedy</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div
+            class="card"
+            data-eventdate="2019-03-26"
+            data-eventgenre="theatre comedy"
+          >
+            <div class="card-body">
+              <h5 class="card-title">Mar 26 - Event 3</h5>
+              <h5>Comedy | Theatre</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+
+          <div class="card" data-eventdate="2019-03-28" data-eventgenre="drama">
+            <div class="card-body">
               <h5 class="card-title">Mar 28 | Event 1</h5>
-              <h5>Theatre</h5>
+              <h5>Drama</h5>
               <p class="card-text">
                 Some quick example text to build on the card title and make up
                 the bulk of the card's content.
