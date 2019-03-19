@@ -52,7 +52,7 @@ function showDateEventMatch() {
 showAllDates();
 
 
-// datepicker
+// Datepicker
 $(".datepicker")
   .datepicker({ clearBtn: true })
   .on("changeDate", function(e) {
@@ -83,7 +83,7 @@ $(".datepicker")
 });
 
 
-// genre checklist
+// Genre Checklist
 $(".form-check-input").on("change", evt => {
   genreSelect = evt.target.id;
   genreSelectCard = $(".card*[data-eventgenre*=" + genreSelect + "]");
@@ -126,6 +126,17 @@ $( ".clear" ).click(function() {
   showAllDates();
   $("p:first").html("No Date Selected");
   console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
+});
+
+
+// Search
+
+$("#eventSearch").on("keyup", function() {
+  var value = $(this).val().toLowerCase();
+  console.log('keyup');
+  $(".eventItem .card-body h5").filter(function() {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  });
 });
 
 
