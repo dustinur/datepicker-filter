@@ -1,4 +1,4 @@
-# Frontend Showtimes & Events Search
+# Shows & Events Search Filter
 
 Basic front-end jquery search filter for event listings.
 
