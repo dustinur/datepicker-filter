@@ -1,4 +1,4 @@
-$(".card").hide();
+$(".eventItem").hide();
 
 var checkedItems = [];
 var dateSelect;
@@ -39,7 +39,7 @@ function hideOld() {
 function showDateEventMatch() {
   $("input:checkbox[class=form-check-input]:checked").each(function() {
     $(
-      ".card*[data-eventdate*=" +
+      ".eventItem*[data-eventdate*=" +
       dateSelect +
       "]*[data-eventgenre*=" +
       $(this).attr("id") +
@@ -62,9 +62,9 @@ $(".datepicker")
     ("0" + (e.date.getMonth() + 1)).slice(-2) +
     "-" +
     ("0" + e.date.getDate()).slice(-2);
-  dateSelectCard = $(".card*[data-eventdate*=" + dateSelect + "]");
+  dateSelectCard = $(".eventItem*[data-eventdate*=" + dateSelect + "]");
 
-  $(".card").hide();
+  $(".eventItem").hide();
 
   if (checkedItems.length === 0) {
     dateSelectCard.show();
@@ -86,12 +86,12 @@ $(".datepicker")
 // Genre Checklist
 $(".form-check-input").on("change", evt => {
   genreSelect = evt.target.id;
-  genreSelectCard = $(".card*[data-eventgenre*=" + genreSelect + "]");
+  genreSelectCard = $(".eventItem*[data-eventgenre*=" + genreSelect + "]");
 
   filterUnchecked = $(
     "input:checkbox[class=form-check-input]:not(:checked)"
   ).each(function() {
-    $(".card*[data-eventgenre*=" + $(this).attr("id") + "]").hide();
+    $(".eventItem*[data-eventgenre*=" + $(this).attr("id") + "]").hide();
   });
 
   checkedItems = $("input:checkbox[class=form-check-input]:checked")
@@ -102,7 +102,7 @@ $(".form-check-input").on("change", evt => {
 
   if (dateSelect === undefined) {
     $("input:checkbox[class=form-check-input]:checked").each(function() {
-      $(".card*[data-eventgenre*=" + $(this).attr("id") + "]").show();
+      $(".eventItem*[data-eventgenre*=" + $(this).attr("id") + "]").show();
       hideOld();
     });
   } else {
