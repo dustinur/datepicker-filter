@@ -1,5 +1,62 @@
-body { background: #111; color: #fff; }
-.card { margin-top: 20px;   background: #222; }
-.clear { padding: 10px; background: #333; }
-.clear:hover { color: black; background: #111; }
-.dateSelectOutput { color: #007bff; font-weight: bold; }
+body {
+    background: #123;
+    color: #eee;
+    font-family: "Raleway", sans-serif;
+  }
+  
+  .card {
+    margin-top: 20px;
+    background: #333;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .card-title span {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .clear {
+    padding: 10px;
+    background: #007bff;
+  }
+  .clear:hover {
+    font-weight: 400;
+    background: #007bff;
+    font-weight: bold;
+    color: #212529;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .dateSelectOutput {
+    color: #facf8f;
+    font-weight: 400;
+  }
+  .hidden {
+    display: none;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    max-width: 250px;
+    min-width: 185px;
+  }
+  
+  .search input {
+    margin-left: 10px;
+  }
+  
+  th:hover,
+  td:hover {
+    color: #007bff;
+  }
+  

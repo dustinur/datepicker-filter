@@ -131,13 +131,17 @@ $( ".clear" ).click(function() {
 
 // Search
 
-$("#eventSearch").on("keyup", function() {
-  var value = $(this).val().toLowerCase();
-  console.log('keyup');
-  $(".eventItem .card-body h5").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-  });
-});
+$('[data-search]').on('keyup', function() {
+	var searchVal = $(this).val();
+	var filterItems = $('.eventItem');
 
+	if ( searchVal != '' ) {
+		filterItems.addClass('hidden');
+		$('.eventItem[data-eventartist*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
+		$('.eventItem[title*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
+	} else {
+		filterItems.removeClass('hidden');
+	}
+});
 
 console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
