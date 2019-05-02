@@ -15,4 +15,4 @@ Artists, dates and genres are added as data attributes (data-eventdate="2019-03-
 
 
 ## Codepen
-https://codepen.io/dustinur/pen/vPEzEK.1
+https://codepen.io/dustinur/pen/vPEzEK
