@@ -1,3 +1,7 @@
+$(".cancel").click(function() {
+  $(".search").load(" .search > *");
+});
+
 $(".eventItem").hide();
 
 var checkedItems = [];
@@ -12,27 +16,27 @@ var month = d.getMonth() + 1;
 var day = d.getDate();
 
 var todaysDate =
-    d.getFullYear() +
-    "-" +
-    (month < 10 ? "0" : "") +
-    month +
-    "-" +
-    (day < 10 ? "0" : "") +
-    day;
+  d.getFullYear() +
+  "-" +
+  (month < 10 ? "0" : "") +
+  month +
+  "-" +
+  (day < 10 ? "0" : "") +
+  day;
 
 function showAllDates() {
   $("[data-eventdate]")
     .filter(function() {
-    return $(this).attr("data-eventdate") >= todaysDate;
-  })
+      return $(this).attr("data-eventdate") >= todaysDate;
+    })
     .show();
 }
 
 function hideOld() {
   $("[data-eventdate]")
     .filter(function() {
-    return $(this).attr("data-eventdate") < todaysDate;
-  })
+      return $(this).attr("data-eventdate") < todaysDate;
+    })
     .hide();
 }
 
@@ -40,10 +44,10 @@ function showDateEventMatch() {
   $("input:checkbox[class=form-check-input]:checked").each(function() {
     $(
       ".eventItem*[data-eventdate*=" +
-      dateSelect +
-      "]*[data-eventgenre*=" +
-      $(this).attr("id") +
-      "]"
+        dateSelect +
+        "]*[data-eventgenre*=" +
+        $(this).attr("id") +
+        "]"
     ).show();
     hideOld();
   });
@@ -51,37 +55,33 @@ function showDateEventMatch() {
 
 showAllDates();
 
-
 // Datepicker
 $(".datepicker")
   .datepicker({ clearBtn: true })
   .on("changeDate", function(e) {
-  dateSelect =
-    e.date.getFullYear() +
-    "-" +
-    ("0" + (e.date.getMonth() + 1)).slice(-2) +
-    "-" +
-    ("0" + e.date.getDate()).slice(-2);
-  dateSelectCard = $(".eventItem*[data-eventdate*=" + dateSelect + "]");
+    dateSelect =
+      e.date.getFullYear() +
+      "-" +
+      ("0" + (e.date.getMonth() + 1)).slice(-2) +
+      "-" +
+      ("0" + e.date.getDate()).slice(-2);
+    dateSelectCard = $(".eventItem*[data-eventdate*=" + dateSelect + "]");
 
-  $(".eventItem").hide();
+    $(".eventItem").removeClass("hidden");
 
-  if (checkedItems.length === 0) {
-    dateSelectCard.show();
-  } else {
-    showDateEventMatch();
-  }
+    $(".eventItem").hide();
 
-  $("p:first").html(dateSelect);
-  console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
+    if (checkedItems.length === 0) {
+      dateSelectCard.show();
+    } else {
+      showDateEventMatch();
+    }
 
-})
-  .on("clearDate", function(e) {
-  showAllDates();
-  dateSelect = undefined;
-  $("p:first").html("No Date Selected");
-});
-
+    $("p:first").html(dateSelect);
+    console.log(
+      "Checked items: " + checkedItems + ", Date selected: " + dateSelect
+    );
+  });
 
 // Genre Checklist
 $(".form-check-input").on("change", evt => {
@@ -96,8 +96,8 @@ $(".form-check-input").on("change", evt => {
 
   checkedItems = $("input:checkbox[class=form-check-input]:checked")
     .map(function() {
-    return $(this).val();
-  })
+      return $(this).val();
+    })
     .get();
 
   if (dateSelect === undefined) {
@@ -116,32 +116,34 @@ $(".form-check-input").on("change", evt => {
       dateSelectCard.show();
     }
   }
-  console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
+  console.log(
+    "Checked items: " + checkedItems + ", Date selected: " + dateSelect
+  );
 });
 
-$( ".clear" ).click(function() {
-  $( ".form-check-input" ).prop( "checked", false );
-  dateSelect = undefined;
-  checkedItems = [];
-  showAllDates();
-  $("p:first").html("No Date Selected");
-  console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
+$(".clear").click(function() {
+  location.reload(true);
 });
-
 
 // Search
 
-$('[data-search]').on('keyup', function() {
-	var searchVal = $(this).val();
-	var filterItems = $('.eventItem');
+$("[data-search]").on("keyup", function() {
+  var searchVal = $(this).val();
+  var filterItems = $(".eventItem");
 
-	if ( searchVal != '' ) {
-		filterItems.addClass('hidden');
-		$('.eventItem[data-eventartist*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
-		$('.eventItem[title*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
-	} else {
-		filterItems.removeClass('hidden');
-	}
+  if (searchVal != "") {
+    filterItems.addClass("hidden");
+    $(
+      '.eventItem[data-eventartist*="' + searchVal.toLowerCase() + '"]'
+    ).removeClass("hidden");
+    $('.eventItem[title*="' + searchVal.toLowerCase() + '"]').removeClass(
+      "hidden"
+    );
+  } else {
+    filterItems.removeClass("hidden");
+  }
 });
 
-console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
+console.log(
+  "Checked items: " + checkedItems + ", Date selected: " + dateSelect
+);
