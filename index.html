@@ -27,10 +27,9 @@
     <div class="container p-5">
       <div class="row">
         <div class="col-xs-12 p-4">
-          Dates and genres are added as data attributes
-          (data-eventdate="2019-06-24" data-eventgenre ="music theatre") to each
-          element with the .card class. Event cards older than current date are
-          hidden.
+          Dates and genres are added as data attributes (data-eventdate="2019-07-24"
+          data-eventgenre ="music theatre") to each element with the .card class.
+          Event cards older than current date are hidden.
         </div>
       </div>
       <div class="row">
@@ -38,13 +37,14 @@
           <div class="md-form mb-2 search">
             <i class="fas fa-search"></i>
             <input
-                   class="form-control"
-                   type="text"
-                   placeholder="Search event or artist..."
-                   aria-label="Search"
-                   onfocus="this.value=''"
-                   data-search
-                   />
+              id="event-search"
+              class="form-control"
+              type="text"
+              placeholder="Search event or artist..."
+              aria-label="Search"
+              autocomplete="off"
+              data-search
+            />
           </div>
           <div class="datepicker"></div>
     
@@ -53,33 +53,36 @@
           <h4 class="pt-2">Genres</h4>
           <div class="form-check mt-2">
             <input
-                   class="form-check-input"
-                   type="checkbox"
-                   value="music"
-                   id="music"
-                   />
+              class="form-check-input"
+              type="checkbox"
+              name="ev-genre"
+              value="music"
+              id="music"
+            />
             <label class="form-check-label" for="music">
               Music
             </label>
           </div>
           <div class="form-check">
             <input
-                   class="form-check-input"
-                   type="checkbox"
-                   value="dance"
-                   id="dance"
-                   />
+              class="form-check-input"
+              type="checkbox"
+              name="ev-genre"
+              value="dance"
+              id="dance"
+            />
             <label class="form-check-label" for="dance">
               Dance
             </label>
           </div>
           <div class="form-check">
             <input
-                   class="form-check-input"
-                   type="checkbox"
-                   value="theatre"
-                   id="theatre"
-                   />
+              class="form-check-input"
+              type="checkbox"
+              name="ev-genre"
+              value="theatre"
+              id="theatre"
+            />
             <label class="form-check-label" for="theatre">
               Theatre
             </label>
@@ -88,300 +91,377 @@
           <h4 class="pt-4">Subgenres</h4>
           <div class="form-check">
             <input
-                   class="form-check-input"
-                   type="checkbox"
-                   value="comedy"
-                   id="comedy"
-                   />
-            <label class="form-check-label" for="comedy">
-              Comedy
+              class="form-check-input"
+              type="checkbox"
+              name="ev-type"
+              value="academic"
+              id="academic"
+            />
+            <label class="form-check-label" for="academic">
+              Academic
             </label>
           </div>
     
           <div class="form-check">
             <input
-                   class="form-check-input"
-                   type="checkbox"
-                   value="drama"
-                   id="drama"
-                   />
-            <label class="form-check-label" for="drama">
-              Drama
+              class="form-check-input"
+              type="checkbox"
+              name="ev-type"
+              value="professional"
+              id="professional"
+            />
+            <label class="form-check-label" for="professional">
+              Professional
             </label>
           </div>
+
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ev-type"
+              value="gala"
+              id="gala"
+            />
+            <label class="form-check-label" for="gala">
+              Gala
+            </label>
+          </div>
+
         </div>
     
-        <div class="col-xs-12 col-lg-8 eventList">
-          <div class="card eventItem"
-               data-eventdate="2019-06-12"
-               data-eventgenre="music"
-               data-eventartist="prince"
-               title="sign o times">
-            <div class="card-body">
-              <h5 class="card-title">June 12 | Sign 'O' the Times</h5>
-              <h5>Prince</h5>
-              <h5>Music</h5>          
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+        <div class="col-xs-12 col-lg-8">
+          <ul class="eventList">
+            <li
+                class="card eventItem"
+                data-eventdate="2019-06-30"
+                data-eventgenre="music academic"
+                data-eventartist="Lou Reed"
+                title="Velvet"
+                >
+              <div class="card-body">
+                <h5 class="card-title">June 30 | Velvet</h5>
+                <h5>Lou Reed</h5>
+                <h5>music academic</h5>
+                <img src="https://ik.imagekit.io/demo/img/image1.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
+            <li
+                class="card eventItem"
+                data-eventdate="2019-06-30"
+                data-eventgenre="music academic"
+                data-eventartist="Lou Reed"
+                title="Velvet"
+                >
+              <div class="card-body">
+                <h5 class="card-title">June 30 | Velvet</h5>
+                <h5>Lou Reed</h5>
+                <h5>music</h5>
+                <img src="https://ik.imagekit.io/demo/img/image1.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-23 2019-07-24"
+              data-eventgenre="music"
+              data-eventartist="prince"
+              title="sign o times"
+            >
+              <div class="card-body">
+                <h5 class="card-title">July 23-24 | Sign 'O' the Times</h5>
+                <h5>Prince</h5>
+                <h5>music</h5>
+                <img src="https://ik.imagekit.io/demo/img/image1.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-13"
-               data-eventgenre="music"
-               data-eventartist="jay-z"
-               title="black album v2"
-               >
-            <div class="card-body">
-              <h5 class="card-title">June 13 | Black Album V2</h5>
-              <h5>Jay-Z</h5>
-              <h5>Music</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-13"
+              data-eventgenre="music"
+              data-eventartist="jay-z"
+              title="black album v2"
+            >
+              <div class="card-body">
+                <h5 class="card-title">July 13 | Black Album V2</h5>
+                <h5>Jay-Z</h5>
+                <h5>music</h5>
+                <img src="https://ik.imagekit.io/demo/img/image2.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-13"
-               data-eventgenre="dance"
-               data-eventartist="frank lopez"
-               title="dancing with frank"
-               >
-            <div class="card-body">
-              <h5 class="card-title">June 13 | Dancing with Frank</h5>
-              <h5>Frank Lopez</h5>
-              <h5>Dance</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-13"
+              data-eventgenre="theatre professional"
+              data-eventartist="frank lopez"
+              title="dancing with frank"
+            >
+              <div class="card-body">
+                <h5 class="card-title">July 13 | Dancing with Frank</h5>
+                <h5>Frank Lopez</h5>
+                <h5>theatre professional</h5>
+                <img src="https://ik.imagekit.io/demo/img/image3.jpg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-13"
-               data-eventgenre="theatre"
-               data-eventartist="jerry seinfeld"
-               title="stand-up with jerry seinfeld"
-               >
-            <div class="card-body">
-              <h5 class="card-title">June 13 | Stand-Up w/ Jerry Seinfeld</h5>
-              <h5>Jerry Seinfeld</h5>
-              <h5>Theatre</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-13"
+              data-eventgenre="theatre academic"
+              data-eventartist="jerry seinfeld"
+              title="stand-up with jerry seinfeld"
+            >
+              <div class="card-body">
+                <h5 class="card-title">July 13 | Stand-Up w/ Jerry Seinfeld</h5>
+                <h5>Jerry Seinfeld</h5>
+                <h5>theatre academic</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image4.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-24"
-               data-eventgenre="music"
-               data-eventartist="jason alexander"
-               title="an evening with jason alexander"
-               >
-            <div class="card-body">
-              <h3 class="card-title">
-                <span>June 24</span> An Evening with Jason Alexander
-              </h3>
-              <h5>Jason Alexander</h5>
-              <h5>Music</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-24"
+              data-eventgenre="music professional"
+              data-eventartist="jason alexander"
+              title="an evening with jason alexander"
+            >
+              <div class="card-body">
+                <h3 class="card-title">
+                  <span>July 24</span> An Evening with Jason Alexander
+                </h3>
+                <h5>Jason Alexander</h5>
+                <h5>music professional</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image5.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-24"
-               data-eventgenre="music"
-               data-eventartist="the utah symphony"
-               title="from the new world"
-               >
-            <div class="card-body">
-              <h5 class="card-title"><span class="">June 24</span> From the New World</h5>
-              <h5>Music</h5>
-              <h5>The Utah Symphony</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-24"
+              data-eventgenre="music academic"
+              data-eventartist="the utah symphony"
+              title="from the new world"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 24</span> From the New World
+                </h5>
+                <h5>music academic</h5>
+                <h5>The Utah Symphony</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image6.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-24"
-               data-eventgenre="music drama theatre"
-               data-eventartist="uvu student body"
-               title="hamilton"
-               >
-            <div class="card-body">
-              <h5 class="card-title"><span class="">June 24</span>Hamilton</h5>
-              <h5>Music | Drama | Theatre</h5>
-              <h5>UVU Student Body</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-24"
+              data-eventgenre="music professional"
+              data-eventartist="uvu student body"
+              title="hamilton"
+            >
+              <div class="card-body">
+                <h5 class="card-title"><span class="">July 24</span>Hamilton</h5>
+                <h5>music professional</h5>
+                <h5>UVU Student Body</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image7.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-25"
-               data-eventgenre="music"
-               data-eventartist="neil young"
-               title="hey hey, my my"
-               >
-            <div class="card-body">
-              <h5 class="card-title"><span class="">June 25</span> Hey Hey, My My</h5>
-              <h5>Neil Young</h5>
-              <h5>Music</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-25"
+              data-eventgenre="music academic"
+              data-eventartist="neil young"
+              title="hey hey, my my"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 25</span> Hey Hey, My My
+                </h5>
+                <h5>Neil Young</h5>
+                <h5>music academic</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image8.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-25"
-               data-eventgenre="dance theatre"
-               data-eventartist="uvu department of theatre"
-               title="curtain up! anevening on broadway"
-               >
-            <div class="card-body">
-              <h5 class="card-title">
-                <span class="">June 25</span> Curtain Up! An Evening of Broadway
-              </h5>
-              <h5>UVU Department of Theatre</h5>
-              <h5>Dance | Theatre</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-25"
+              data-eventgenre="dance theatre"
+              data-eventartist="uvu department of theatre"
+              title="curtain up! anevening on broadway"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 25</span> Curtain Up! An Evening of Broadway
+                </h5>
+                <h5>UVU Department of theatre</h5>
+                <h5>dance | theatre</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image9.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-26"
-               data-eventgenre="drama theatre"
-               data-eventartist="uvu department of dance"
-               title="bodies in motion: a showcase of uvu dance"
-               >
-            <div class="card-body">
-              <h5 class="card-title">
-                <span class="">June 26</span> Bodies in Motion: a Showcase of UVU Dance
-              </h5>
-              <h5>UVU Department of Dance</h5>
-              <h5>Drama | Theatre</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-26"
+              data-eventgenre="theatre professional"
+              data-eventartist="uvu department of dance"
+              title="bodies in motion: a showcase of uvu dance"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 26</span> Bodies in Motion: a Showcase of UVU
+                  dance
+                </h5>
+                <h5>UVU Department of dance</h5>
+                <h5>theatre professional</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-26"
-               data-eventgenre="comedy"
-               >
-            <div class="card-body">
-              <h5 class="card-title"><span class="">June 26</span> Event 2</h5>
-              <h5>Comedy</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-26"
+              data-eventgenre="dance academic"
+            >
+              <div class="card-body">
+                <h5 class="card-title"><span class="">July 26</span> Event 2</h5>
+                <h5>dance academic</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image10.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-26"
-               data-eventgenre="theatre comedy"
-               >
-            <div class="card-body">
-              <h5 class="card-title"><span class="">June 26</span> Event 3</h5>
-              <h5>Comedy | Theatre</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-26"
+              data-eventgenre="theatre academic"
+            >
+              <div class="card-body">
+                <h5 class="card-title"><span class="">July 26</span> Event 3</h5>
+                <h5>theatre academic</h5>
+                <img src="https://ik.imagekit.io/demo/img/image1.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-28"
-               data-eventgenre="drama"
-               data-eventartist="sierra boggess"
-               title="arts masquerade: royal reverie ball"
-               >
-            <div class="card-body">
-              <h5 class="card-title">
-                <span class="">June 28</span> Arts Masquerade: Royal Reverie Ball
-              </h5>
-              <h5>Sierra Boggess</h5>
-              <h5>Drama</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-28"
+              data-eventgenre="music professional"
+              data-eventartist="sierra boggess"
+              title="arts masquerade: royal reverie ball"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 28</span> Arts Masquerade: Royal Reverie Ball
+                </h5>
+                <h5>Sierra Boggess</h5>
+                <h5>music professional</h5>
+                <img src="https://ik.imagekit.io/demo/img/image2.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
     
-          <div
-               class="card eventItem"
-               data-eventdate="2019-06-28"
-               data-eventgenre="music"
-               data-eventartist="the strike"
-               title="noordapalooza featuring the strike"
-               >
-            <div class="card-body">
-              <h5 class="card-title">
-                <span class="">June 28</span> Noordapalooza Featuring the Strike
-              </h5>
-              <h5>The Strike</h5>
-              <h5>Music</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
+            <li
+              class="card eventItem"
+              data-eventdate="2019-07-28"
+              data-eventgenre="music academic"
+              data-eventartist="the strike"
+              title="noordapalooza featuring the strike"
+            >
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="">July 28</span> Noordapalooza Featuring the Strike
+                </h5>
+                <h5>The Strike</h5>
+                <h5>music academic</h5>
+                <img class="lazy" data-src="https://ik.imagekit.io/demo/img/image4.jpeg?tr=w-400,h-300" />
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up the
+                  bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
