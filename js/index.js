@@ -1,3 +1,4 @@
+// Hide all event cards
 $(".eventItem").hide();
 
 var checkedItems = [];
@@ -9,13 +10,14 @@ var $filteredResults;
 var genreSelect;
 var genreSelectCard;
 
-
+// Convert date to data-eventdate format, ex. 2020-12-31
 var d = new Date();
 var month = d.getMonth() + 1;
 var day = d.getDate();
-
 var todaysDate = d.getFullYear() + "-" + (month < 10 ? "0" : "") + month + "-" + (day < 10 ? "0" : "") + day;
 
+
+// Show all events newer than current date
 function showAllDates() {
   $("[data-eventdate]")
     .filter(function() {
@@ -24,6 +26,7 @@ function showAllDates() {
     .show();
 }
 
+// Hide events older than current date
 function hideOld() {
   $("[data-eventdate]")
     .filter(function() {
@@ -47,7 +50,7 @@ $(".datepicker")
     ("0" + e.date.getDate()).slice(-2);
   dateSelectCard = $(".eventItem*[data-eventdate*=" + dateSelect + "]");
 
-  // $('.eventItem').removeClass('hidden');
+  $('.eventItem').removeClass('hidden');
 
   $(".eventItem").hide();
   console.log(boxesChecked)
@@ -59,7 +62,6 @@ $(".datepicker")
   }
 
   $("p:first").html(dateSelect);
-  // console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
 })
 
 
@@ -88,13 +90,13 @@ $filterCheckboxes.on('change', function() {
   // loop over the selected filter name -> (array) values pairs
   $.each(selectedFilters, function(name, filterValues) {
 
-    // filter each .flower element
+    // filter each .eventItem element
     $filteredResults = $filteredResults.filter(function() {
 
       var matched = false,
           currentFilterValues = $(this).data('eventgenre').split(' ');
 
-      // loop over each category value in the current .flower's data-category
+      // loop over each category value in the current .eventItem's data-category
       $.each(currentFilterValues, function(_, currentFilterValue) {
 
         // if the current category exists in the selected filters array
@@ -107,23 +109,19 @@ $filterCheckboxes.on('change', function() {
         }
       });
 
-      // if matched is true the current .flower element is returned
+      // if matched is true the current .eventItem element is returned
       return matched;
-
     });
   });
 
-  //   $('.eventItem').hide().filter($filteredResults).show();
-  //   hideOld();
-
-
+  // If day is selected with datepicker, only show eventItems for that date
   if (dateSelect === undefined) {
-      $('.eventItem').hide().filter($filteredResults).show();
+    $('.eventItem').hide().filter($filteredResults).show();
   } else {
-    $(".eventItem*[data-eventdate*=" + dateSelect + "]").hide().filter($filteredResults).show();
+    dateSelectCard.hide().filter($filteredResults).show();
   }
 
-
+  // If all checkboxes are unchecked, show all eventItems for selected date only
   boxesChecked = Object.values(selectedFilters).length;
 
   if (boxesChecked === 0 || boxesChecked === undefined) {
@@ -133,11 +131,11 @@ $filterCheckboxes.on('change', function() {
       dateSelectCard.show();
     }
   }
-  
+
+  // Hide eventCards with event date older then current calendar day
   hideOld();
 
 });
-
 
 
 // Refresh search
@@ -153,11 +151,7 @@ $(".eventItem").click(function(){
 });
 
 
-
-
-
 // Search
-
 $('[data-search]').on('keyup', function() {
   var searchVal = $(this).val();
   var filterItems = $('.eventItem');
@@ -170,9 +164,6 @@ $('[data-search]').on('keyup', function() {
     filterItems.removeClass('hidden');
   }
 });
-
-// console.log('Checked items: ' + checkedItems + ', Date selected: ' + dateSelect);
-
 
 
 // Lazy Load Images
