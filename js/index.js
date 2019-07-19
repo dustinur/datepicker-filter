@@ -1,7 +1,6 @@
 // Hide all event cards
 $(".eventItem").hide();
 
-var checkedItems = [];
 var boxesChecked;
 var dateSelect;
 var dateSelectCard;
@@ -62,6 +61,8 @@ $(".datepicker")
   }
 
   $("p:first").html(dateSelect);
+  lazyLoad();
+
 })
 
 
@@ -71,6 +72,7 @@ $(".datepicker")
 var $filterCheckboxes = $('input[type="checkbox"]');
 
 $filterCheckboxes.on('change', function() {
+    lazyLoad();
 
   var selectedFilters = {};
 
@@ -134,7 +136,7 @@ $filterCheckboxes.on('change', function() {
 
   // Hide eventCards with event date older then current calendar day
   hideOld();
-
+lazyLoad();
 });
 
 
@@ -153,6 +155,7 @@ $(".eventItem").click(function(){
 
 // Search
 $('[data-search]').on('keyup', function() {
+  // lazyLoad();
   var searchVal = $(this).val();
   var filterItems = $('.eventItem');
 
@@ -163,36 +166,54 @@ $('[data-search]').on('keyup', function() {
   } else {
     filterItems.removeClass('hidden');
   }
+  lazyLoad();
 });
 
 
 // Lazy Load Images
-document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages = document.querySelectorAll("img.lazy");    
-  var lazyloadThrottleTimeout;
+registerListener('load', setLazy);
+registerListener('load', lazyLoad);
+registerListener('scroll', lazyLoad);
 
-  function lazyload () {
-    if(lazyloadThrottleTimeout) {
-      clearTimeout(lazyloadThrottleTimeout);
-    }    
+var lazy = [];
 
-    lazyloadThrottleTimeout = setTimeout(function() {
-      var scrollTop = window.pageYOffset;
-      lazyloadImages.forEach(function(img) {
-        if(img.offsetTop < (window.innerHeight + scrollTop)) {
-          img.src = img.dataset.src;
-          img.classList.remove('lazy');
-        }
-      });
-      if(lazyloadImages.length == 0) { 
-        document.removeEventListener("scroll", lazyload);
-        window.removeEventListener("resize", lazyload);
-        window.removeEventListener("orientationChange", lazyload);
+function setLazy(){
+  lazy = document.getElementsByClassName('lazy');
+  console.log('Found ' + lazy.length + ' lazy images');
+} 
+
+function lazyLoad(){
+  for(var i=0; i<lazy.length; i++){
+    if(isInViewport(lazy[i])){
+      if (lazy[i].getAttribute('data-src')){
+        lazy[i].src = lazy[i].getAttribute('data-src');
+        lazy[i].removeAttribute('data-src');
       }
-    }, 20);
+    }
   }
 
-  document.addEventListener("scroll", lazyload);
-  window.addEventListener("resize", lazyload);
-  window.addEventListener("orientationChange", lazyload);
-});
+  cleanLazy();
+}
+
+function cleanLazy(){
+  lazy = Array.prototype.filter.call(lazy, function(l){ return l.getAttribute('data-src');});
+}
+
+function isInViewport(el){
+  var rect = el.getBoundingClientRect();
+
+  return (
+    rect.bottom >= 0 && 
+    rect.right >= 0 && 
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) && 
+    rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+function registerListener(event, func) {
+  if (window.addEventListener) {
+    window.addEventListener(event, func)
+  } else {
+    window.attachEvent('on' + event, func)
+  }
+}
