@@ -1,6 +1,9 @@
 // Hide all event cards
 $(".eventItem").hide();
 
+var currentURL = window.location.href;
+console.log(currentURL);
+
 var boxesChecked;
 var dateSelect;
 var dateSelectCard;
@@ -64,7 +67,6 @@ $(".datepicker")
   lazyLoad();
 
 })
-
 
 
 
