@@ -1,8 +1,8 @@
 // Hide all event cards
 $(".eventItem").hide();
 
-var currentURL = window.location.href;
-console.log(currentURL);
+var currentURLAnchor = window.location.href.slice(71);
+console.log(currentURLAnchor);
 
 var boxesChecked;
 var dateSelect;
@@ -73,6 +73,7 @@ $(".datepicker")
 // Genre Checklist
 var $filterCheckboxes = $('input[type="checkbox"]');
 
+
 $filterCheckboxes.on('change', function() {
     lazyLoad();
 
@@ -141,7 +142,6 @@ $filterCheckboxes.on('change', function() {
 lazyLoad();
 });
 
-
 // Refresh search
 $( ".clear" ).click(function() {
   location.reload(true);
@@ -153,7 +153,6 @@ $(".eventItem").click(function(){
   $( ".form-check-input" ).prop( "checked", false );
   showAllDates();
 });
-
 
 // Search
 $('[data-search]').on('keyup', function() {
@@ -219,3 +218,7 @@ function registerListener(event, func) {
     window.attachEvent('on' + event, func)
   }
 }
+
+$( document ).ready(function() {
+  $( currentURLAnchor ).trigger( "click" );
+});
