@@ -1,9 +1,6 @@
 // Hide all event cards
 $(".eventItem").hide();
 
-var currentURLAnchor = window.location.href.slice(71);
-console.log(currentURLAnchor);
-
 var boxesChecked;
 var dateSelect;
 var dateSelectCard;
@@ -219,6 +216,16 @@ function registerListener(event, func) {
   }
 }
 
-$( document ).ready(function() {
-  $( currentURLAnchor ).trigger( "click" );
+
+$(document).ready(function () {
+  var currentURL = window.location.href;
+
+  if (currentURL.includes(".html#")) {
+    var currentURLAnchor = currentURL.split('.html#')[1];
+    // console.log(currentURLAnchor + ' is split from ' + currentURL);
+    $(":checkbox[value=" + currentURLAnchor + "]").trigger("click");
+  }
 });
+
+
+
